@@ -32,7 +32,20 @@ class ProcessList
     processNode* head;  // point to the head of the list
 
     public:
-        ProcessList() : numOfProcesses(0), head(nullptr) {}
+        ProcessList() : numOfProcesses(0), head(nullptr) {} // constructor
+
+        ~ProcessList()  // destructor
+        {
+            processNode* temp = head;
+
+            while (temp != nullptr)   // iterating over the entire list
+            {
+                processNode* nodeToBeDeleted = temp;
+                temp = temp->next;
+
+                delete nodeToBeDeleted; // deallocating the process node
+            }
+        }
 
         // inserts a process node at the end
         void createAndInsertProcess(int executionTime)
