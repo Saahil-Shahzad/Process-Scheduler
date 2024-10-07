@@ -190,6 +190,13 @@ class ProcessList
             {
                 cycleCount++;   // incrementing the cycle counter
 
+                if (cycleCount == 3)
+                {
+                    createAndInsertProcess(9);
+
+                    std::cout << "New process arrives: P4 (Remaining: 9)\n"; 
+                }
+
                 processNode* temp = head;
 
                 while (temp != nullptr)   // iterating over the entire list
